@@ -22,15 +22,35 @@
         margin: 5px;
       }
 
+      li {
+        cursor: pointer;
+      }
+
       @media (max-width: 600px) {
         header > ul {
           display: none;
         }
         .mobile_tab {
-          display: block;
+          display: inline-block;
+        }
+
+        .open {
+          display: flex;
+          flex-direction: column;
         }
       }
     </style>
+    <script>
+      window.onload = () => {
+        const hamburgerDom = document.querySelector(".mobile_tab");
+        hamburgerDom.addEventListener("click", () => {
+
+
+
+            
+        });
+      };
+    </script>
   </head>
   <body>
     <header>
