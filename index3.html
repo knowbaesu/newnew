@@ -41,13 +41,12 @@
       }
     </style>
     <script>
-      window.onload = () => {
+       window.onload = () => {
         const hamburgerDom = document.querySelector(".mobile_tab");
         hamburgerDom.addEventListener("click", () => {
-
-
-
-            
+          const ulTag = document.querySelector("header > ul");
+          if (ulTag.className.includes("open")) ulTag.classList.remove("open");
+          else ulTag.classList.add("open");
         });
       };
     </script>
