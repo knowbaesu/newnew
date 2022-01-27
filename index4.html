@@ -58,7 +58,47 @@
       }
     </style>
     <script>
-         /* Input Code */
+      window.onload = () => {
+        const panel = document.querySelector(".panel");
+        const map = [];
+        let turn = 2;
+
+        // 0: 아무것도 없음, 1: 흑돌, 2: 백돌
+        for (let i = 0; i < 15; i++) {
+          map.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        }
+        console.log(map);
+
+        for (let i = 0; i < 15; i++) {
+          const rowTag = document.createElement("div");
+          rowTag.classList.add("row");
+
+          for (let j = 0; j < 15; j++) {
+            const colTag = document.createElement("div");
+            colTag.classList.add("col");
+
+            colTag.onclick = () => {
+              console.log(i, j, "클릭 !!");
+
+              if (turn === 1) turn = 2;
+              else if (turn === 2) turn = 1;
+
+              map[i][j] = turn;
+
+              if (map[i][j] === 1) {
+                colTag.classList.add("black");
+              } else if (map[i][j] === 2) {
+                colTag.classList.add("white");
+              }
+
+              console.log(map);
+            };
+
+            rowTag.appendChild(colTag);
+          }
+          panel.appendChild(rowTag);
+        }
+      };
     </script>
   </head>
   <body>
