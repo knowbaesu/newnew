@@ -1,0 +1,17 @@
+<input type="button" value="CREATE" onclick="
+fetch('http://localhost:3000/topics', {
+    method:'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body:JSON.stringify({title:prompt('title?'), body:prompt('body?')})
+})
+  .then(response => response.json())
+  .then(data => {
+    let lis = '';
+    for(let i=0; i<data.length; i++){
+        lis = lis + `<li>${data[i].title}</li>`;
+    }
+    document.querySelector('nav>ul').innerHTML = lis;
+  })
+">
